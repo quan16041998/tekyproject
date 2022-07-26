@@ -1,0 +1,31 @@
+<div class="c-block bg-gray-over">
+    <div class="container">
+      <div class="c-box">
+        <div class="c-box__title">
+          <div class="c-box__title__small text-warning">{{ title.5.title_small}}</div>
+          <div class="c-box__title__name">{{title.5.title_big}}</div>
+        </div>
+      </div>
+    </div>
+    <!--end container-->
+    <div class="c-prize-outer">
+      <div class="c-prize-slider c-template-dotprimary">
+        <div class="owl-carousel js-prize-slider">
+         {% for prize in prize  %}
+         {% for number in number %}
+         <div class="c-prize-item">
+           <div class="c-prize-item__inner">
+             <div class="c-prize-item__thumb"><img src="/{{prize.img}}" alt="prize"></div>
+             <div class="c-prize-item__title">{{prize.title}}{{number}}</div>
+             <div class="c-prize-item__desc">{{prize.name}}</div>
+             <div class="c-prize-item__more"><a href="#">Xem chi tiết<i class="icon-arrow-right-blue"></i></a></div>
+           </div>
+         </div>
+         {% endfor %}   
+         {% endfor %}   
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} endblock {% endcomment %}

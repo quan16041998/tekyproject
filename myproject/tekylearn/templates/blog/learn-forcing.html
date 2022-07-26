@@ -1,0 +1,56 @@
+{% load static %}
+<div class="c-block c-forcing-block">
+    <div class="container">
+      <div class="c-box">
+        <div class="c-box__title">
+          <div class="c-box__title__small text-warning">{{title.4.title_small}}</div>
+          <div class="c-box__title__name">{{title.4.title_big}}</div>
+        </div>
+      </div>
+    </div>
+    <!--end container-->
+    <div class="c-forcing-wrapper">
+      <div class="c-forcing-slider">
+        <div class="owl-carousel js-forcing-slider">
+          {% for learn_forcing in  forcing %}
+          <div class="c-forcing-item">
+            <div class="container">
+              <div class="c-forcing-item__flex">
+                <div class="c-forcing-item__left">
+                  <div class="c-forcing-item__pos">{{learn_forcing.name}}</div>
+                  <div class="c-forcing-item__name">{{learn_forcing.pos}}</div>
+                  <div class="c-forcing-item__desc">{{learn_forcing.intro}}</div>
+                </div>
+                <div class="c-forcing-item__right">
+                  <div class="c-forcing-item__pos">{{learn_forcing.pos}}</div>
+                  <div class="c-forcing-item__name">{{learn_forcing.name}}</div>                  
+                  <div class="c-forcing-item__content">
+                    <div class="c-forcing-item__avatar">
+                      <figure><img src="/tekylearn/static/images/ upload/forcing_1.png" alt="image"></figure>
+                    </div>
+                    <div class="c-forcing-item__gallery">
+                      <ul>                 
+                        {% for img_forcing in learn_forcing.test.all %}
+                          {% if img_forcing.img %}
+                            <li>
+                              <figure><img src="{{img_forcing.img.url}}" alt="image"></figure>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+       
+        {% comment %} end-forcing-item {% endcomment %}
+      </div>
+      <!--end c-forcing-slider-->
+    </div>
+    <!--end c-forcing-wrapper-->
+  </div>
+  <!--end c-block-->

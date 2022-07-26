@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="author" content="Template">
+            <meta name="COPYRIGHT" content="© Template">
+            <meta name="robots" content="noodp,index,follow">
+            <meta name="google" content="notranslate">
+            <meta name="keywords" content="">
+            <meta name="description" content="">
+            <link rel="shortcut icon" href="images/favicon.ico">
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="shortcut icon" href="statics/img/favicon.ico">
+            <title>
+                {% block title %}
+                {% endblock  %}
+            </title>      
+            <link rel="stylesheet" href="css/style.min.css">
+        </head>
+        <body>
+            {% include 'Templates/navmaster.html' %}
+            {% block content %}
+
+            {% endblock content %}
+
+
+            {% include 'footer.html' %}
+            <script src ="static/js/bootstrap.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script> 
+            {% comment %} <script src="js/popper.min.js"></script>
+            <script src="js/owl.carousel.min.js"></script>
+            <script src="js/owl.carousel2.thumbs.js"></script>
+            <script src="js/jquery.matchHeight-min.js"></script>
+            <script src="js/imagesloaded.pkgd.min.js"></script>
+            <script src="js/masonry.pkgd.min.js"></script>
+            <script src="js/jquery.fancybox.js"></script>
+            <script src="js/jquery.inview.js"></script>
+            <script src="js/jquery.countTo.js"></script>
+            <script src="js/jquery.scrollchaser.min.js"></script>
+            <script src="js/jquery.scrollbar.min.js"></script>
+            <script src="static/js/function.js"></script>
+            <script src="static/js/style.js"></script> {% endcomment %}
+        </body>
+    </html>

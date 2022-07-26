@@ -1,0 +1,496 @@
+/*---------- bootstrap css rewrite css ----------*/
+//bootstrap common css
+.container{
+	@media (min-width: $screen-sm-min) {
+    max-width: none;
+  }
+  @media (min-width: $screen-md-min) {
+    max-width: $container-md;
+    width: $container-md;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (min-width: $screen-lg-min) {
+    max-width: $container-lg;
+    width: $container-lg;
+  }
+  @media (min-width: $screen-xl-min) {
+    max-width: $container-xl;
+    width: $container-xl;
+  }
+}
+.btn{
+	cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  .icon-left{
+    margin-right: 5px;
+    &.icon16-plus-black{
+      margin-top: -3px;
+    }
+  }
+  .icon-right{
+    margin-left: 5px;
+  }
+  &.is-button-circle{
+    @include border-radius(19px);
+  }
+  .is-small{
+    font-size: 12px;
+    font-weight: 500;
+    display: block;
+  }
+  &.is-flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &.is-shadow{
+    @include shadow-button;
+  }
+  &.is-border-triple{
+    border-width: 3px;
+  }
+  &.is-shadow-solid-green{
+    @include box-shadow(0px 4px 0px #5DC2A7);
+  }
+}
+.btn-xl{
+  font-size: 16px;
+  padding: .851rem 1.2rem;
+}
+.btn-group-lg > .btn, .btn-lg{
+	font-size: 18px;
+}
+.btn-group-sm > .btn, .btn-sm{
+  font-size: 12px;
+  &.is-button-circle{
+    @include border-radius(15px);
+  }
+}
+.btn-light{
+  &:hover, &:focus{
+
+  }
+}
+.btn-dark{
+  &:hover, &:focus{
+
+  }
+}
+.btn-primary{
+  background-color: $color-primary;
+  border-color: $color-primary;
+  &:hover, &:focus{
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+    color: $color-black;
+  }
+}
+.btn-outline-primary{
+  border-color: $color-primary;
+  color: $color-primary;
+  &:hover, &:focus{
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+  }
+}
+.btn-secondary{
+  &:hover, &:focus{
+
+  }
+}
+.btn-danger{
+  &:hover, &:focus{
+
+  }
+}
+.btn-info{
+  &:hover, &:focus{
+
+  }
+}
+.btn-warning{
+  &:hover, &:focus{
+
+  }
+}
+.btn-success{
+  &:hover, &:focus{
+
+  }
+}
+.btn-outline-blue-dark{
+  background-color: $color-white;
+  border-color: $color-blue-dark;
+  &:hover, &:focus{
+
+  }
+}
+.btn-orange{
+  background-color: $color-orange;
+  border-color: $color-orange;
+  color: $color-white;
+  &:hover, &:focus{
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+    color: $color-black;
+  }
+}
+.btn-outline-dark{
+  background-color: $color-white;
+  &:hover, &:focus{
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+.btn-outline-gray{
+  border-color: $color-border;
+  color: $color-black;
+  &:hover, &:focus{
+    background-color: $color-white;
+    border-color: $color-border4;
+    //color: $color-white;
+  }
+  &:disabled{
+    opacity: 1;
+    background-color: $color-border !important;
+    border-color: $color-border !important;
+  }
+}
+.btn-border{
+  background-color: $color-border5;
+  border-color: $color-border4;
+  &:hover, &:focus{
+
+  }
+}
+.btn-black{
+  background-color: $color-black;
+  border-color: $color-black;
+  color: $color-white;
+  &:hover, &:focus{
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+  }
+}
+.form-control{
+  @include border-radius(0);
+  @include box-shadow(none);
+  &:focus{
+		@include box-shadow(none);
+  }
+}
+textarea.form-control{
+	height: auto;
+}
+input.form-control{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select:not([multiple]).b-select-custom{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-position: right 50% !important;
+  background-repeat: no-repeat !important;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=) !important;
+  padding: .5em;
+  padding-right: 1.5em
+}
+select:not([multiple])::-ms-expand{
+  display: none;
+}
+.c-custom-select{
+  position: relative;
+  &:after{
+    content: "";
+    width: 7px;
+    height: 12px;
+    background-image: url("../images/drop-down.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    right: 10px;
+  }
+  select.form-control{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+.input-lg{
+
+}
+.input-sm{
+
+}
+.text-primary{
+  color: $color-primary !important;
+}
+.text-secondary{
+  color: $color-secondary !important;
+}
+.text-danger{
+
+}
+.text-info{
+
+}
+.text-warning{
+  color: $color-warning !important;
+}
+.text-warning-medium{
+  color: $color-warning-medium;
+}
+.text-warning-light{
+  color: $color-warning-light;
+}
+.text-success{
+
+}
+.text-blue{
+  color: $color-blue;
+}
+.text-blue-dark{
+  color: $color-blue-dark;
+}
+.text-medium{
+  font-weight: 500 !important;
+}
+.text-normal{
+  font-weight: 400 !important;
+}
+.text-border{
+  color: $color-border;
+}
+.text-orange{
+  color: $color-orange;
+}
+//end bootstrap common css
+//bootstrap table css
+.table{
+}
+//end bootstrap table css
+//bootstrap form css
+.b-form{
+  label{
+    font-weight: normal;
+  }
+  .b-form__captcha{
+    display:inline-block;
+    border:1px solid $color-border;
+    margin:0 0 5px;
+    vertical-align:middle;
+  }
+  .b-form__btnnewimg{
+    background: url(../images/btnnewimg.png) no-repeat;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    height: 31px;
+    margin:0 0 0 5px !important;
+    text-indent: -9999px;
+    vertical-align: middle !important;
+    width: 30px;
+    display: inline-block;
+  }
+  &.form-horizontal{
+    .control-label{
+      text-align: left;
+      &.text-right{
+        text-align: right;
+      }
+    }
+  }
+}
+.c-small-form{
+  label{
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .form-control{
+    font-weight: 500;
+    @include border-radius(5px);
+  }
+}
+//end bootstrap form css
+//bootstrap page css
+.b-page{
+  .page-item{
+    margin: 0 5px;
+    &.disabled{
+      .page-link{
+        background: $color-bg;
+        color: $color-time;
+      }
+    }
+    &.active{
+      .page-link{
+        background: $color-primary;
+      }
+    }
+  }
+  .page-link{
+    border: none;
+    background: $color-bg;
+    color: $color-text;
+    @include border-radius(4px);
+  }
+}
+//end bootstrap page css
+//bootstrap breadcrumb css
+.breadcrumb{
+  margin-bottom: 0;
+  @include border-radius(0);
+  background-color: transparent;
+  padding: 10px 0;
+  >li{
+    >a{
+      text-decoration: none;
+      color: $color-blue;
+      &:hover{
+      }
+    }
+    &.active{
+    }
+  }
+}
+.c-breadcrumb{
+  .breadcrumb{
+    padding: 0;
+    margin-bottom: 20px;
+    .breadcrumb-item{
+      a{
+        font-weight: 700;
+        color: $color-blue;
+      }
+      &+.breadcrumb-item{
+        &:before{
+          content: "";
+          width: 12px;
+          height: 12px;
+          padding: 0;
+          margin: 4px 5px 0 0;
+          background-image: url("../images/icons/icon12-angle-right-black.svg");
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+      }
+      &.active{
+        a{
+          color: $color-black;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+//end bootstrap breadcrumb css
+//bootstrap modal css
+.modal{
+
+}
+//end bootstrap modal css
+//bootstrap panel css
+.panel{
+
+}
+//end bootstrap panel css
+//tooltip css
+body .tooltip.is-armorial.show {
+  opacity: 1;
+}
+body .tooltip.is-armorial .tooltip-inner{
+  background: rgba($color-black,0.7);
+  max-width: 205px;
+  line-height: 1.3;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 15px 10px;
+  @include border-radius(0);
+  b{
+    color: $color-secondary;
+  }
+}
+body .tooltip.is-armorial .arrow{
+  opacity: 0.7;
+}
+body .tooltip.is-tool.show {
+  opacity: 1;
+}
+body .tooltip.is-tool .tooltip-inner{
+  background: $color-black;
+  max-width: 205px;
+  line-height: 1.3;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+  @include border-radius(0);
+  b{
+    color: $color-secondary;
+  }
+}
+body .tooltip.is-tool .arrow{
+  opacity: 2;
+}
+//tooltip css
+//bootstrap responsive css
+@media (min-width: $screen-md-min){
+  .table{
+    //table-layout: fixed;
+  }
+}
+@media (min-width: $screen-lg-min){
+  body .tooltip.is-armorial.bs-tooltip-top[x-placement='top']{
+    //margin-left: 95px;
+    left: 100px !important;
+    top: -15px !important;
+  }
+  body .tooltip.is-armorial.bs-tooltip-top[x-placement='top'] .arrow{
+    opacity: 1;
+    border: none;
+    width: 15px;
+    height: 19px;
+    background-image: url("../images/tooltip-armorial-caret.png");
+    position: absolute;
+    z-index: 2;
+    bottom: -13px;
+    left: 0 !important;
+    top: auto;
+    &:before{
+      display: none;
+    }
+  }
+  body .tooltip.is-tool.bs-tooltip-top[x-placement='top']{
+    //margin-left: 95px;
+    left: 80px !important;
+    top: 10px !important;
+  }
+  body .tooltip.is-tool.bs-tooltip-top[x-placement='top'] .arrow{
+    opacity: 1;
+    border: none;
+    width: 16px;
+    height: 20px;
+    background-image: url("../images/tooltip-tool-caret.png");
+    position: absolute;
+    z-index: 2;
+    bottom: -14px;
+    left: 0 !important;
+    top: auto;
+    &:before{
+      display: none;
+    }
+  }
+}
+@media (min-width: $screen-xl-min){
+
+}
+//end bootstrap responsive css
+/*---------- end bootstrap css rewrite css ----------*/

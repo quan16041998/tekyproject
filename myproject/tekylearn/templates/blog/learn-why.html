@@ -1,0 +1,35 @@
+{% load static %}
+  <div class="c-block">
+    <div class="container">
+      <div class="c-box">
+        <div class="c-box__title is-button">
+          <div class="c-box__title__small text-warning">{{title.0.title_small}}</div>
+          <div class="c-box__title__name">{{title.0.title_big}}</div>
+          <div class="c-box__title__button"><a class="btn btn-primary btn-lg" href="#">Đăng ký học với giáo viên</a></div>
+        </div>
+        <div class="c-box__content pt-5">
+          <div class="c-learn-why-grid">
+            <ul>
+              {% for n in  number %}
+              {% for learnwhy in why %}
+                {% if learnwhy.img %}
+                  <li>
+                    <div class="c-learn-why-item">
+                      <div class="c-learn-why-item__img {{n}}"><img src="{{learnwhy.img.url}}" alt=""></div>
+                      <div class="c-learn-why-item__title">{{learnwhy.title}}</div>
+                      <div class="c-learn-why-item__desc">{{learnwhy.content}}</div>
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+          <!--end c-learn-why-grid-->
+        </div>
+        <!--end c-box__content-->
+      </div>
+    </div>
+    <!--end container-->
+  </div>
+  <!--end c-block-->

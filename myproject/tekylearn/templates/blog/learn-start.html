@@ -1,0 +1,33 @@
+<div class="c-block">
+  <div class="container">
+      <div class="c-box">
+        <div class="c-box__title">
+        <div class="c-box__title__small text-warning">{{title.3.title_small}}</div>
+        <div class="c-box__title__name">{{title.2.title_big}}</div>
+      </div>
+      <div class="c-box__content">
+        <div class="c-learn-start-slider-wrapper">
+          <div class="c-learn-start-slider c-template-dotprimary">
+              <div class="owl-carousel js-learn-start-slider">
+                  {% for learn_start in start  %}
+                  <div class="c-learn-start-item">
+                      <div class="c-learn-start-item__flex">
+                        <div class="c-learn-start-item__number">{{ learn_start.number }}</div>
+                        <div class="c-learn-start-item__name">{{ learn_start.title}}</div>
+                        <div class="c-learn-start-item__desc">{{ learn_start.content}}</div>
+                      </div>
+                    </div>
+                  {% endfor %} 
+                </div>
+              </div>
+              <!--end c-learn-start-slider-->
+            </div>
+            <!--end c-learn-start-slider-->
+        </div>
+          <!--end c-box__content-->
+      </div>
+        <!--end c-box-->
+  </div>
+    <!--end container-->
+</div>
+    <!--end c-block-->

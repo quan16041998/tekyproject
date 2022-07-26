@@ -1,0 +1,31 @@
+<div class="c-block lwt-parent-bg">
+    <div class="container pb-5">
+      <div class="c-box">
+        <div class="c-box__title">
+          <div class="c-box__title__small text-warning">{{title.6.title_small}}</div>
+          <div class="c-box__title__name">{{title.6.title_big}}</div>
+        </div>
+      </div>
+      <!-- c-box-->
+    </div>
+    <!-- container-->
+  </div>
+  <!-- c-block-->
+  <div class="lwt-parent-outer pt-5">
+    <div class="lwt-parent-slider">
+      <div class="owl-carousel js-lwt-parent">
+        {% for learn_parent in parent %}
+        <div class="lwt-parent-item">
+          <div class="lwt-parent-item__head">
+            <div class="lwt-parent-item__avatar"><img src="/{{learn_parent.img}}" alt="avatar"></div><span class="lwt-parent-item__name">{{learn_parent.name}}</span><span class="lwt-parent-item__poi">{{learn_parent.poi}}</span>
+          </div>
+          <div class="lwt-parent-item__content">{{learn_parent.content}}</div>
+        </div>
+        {% endfor %}            
+      </div>
+      <!-- owl-carousel-->
+    </div>
+    <!-- lwt-parent-slider-->
+  </div>
+  <!-- lwt-parent-outer-->
+  
