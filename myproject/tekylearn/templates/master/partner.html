@@ -24,48 +24,15 @@
         <div class="c-home-partner__left">
           <div class="c-partner-grid">
             <ul class="clearfix">
+              {% for part in partner %}
               <li>
                 <div class="c-logo-item">
                   <div class="c-logo-item__inner">
-                    <figure><img src="/tekylearn/static/images/upload/logo_1.png" alt="logo"></figure>
+                    <figure><img src="{{ part.img.url}}" alt="logo"></figure>
                   </div>
                 </div>
               </li>
-              <li>
-                <div class="c-logo-item">
-                  <div class="c-logo-item__inner">
-                    <figure><img src="/tekylearn/static/images/upload/logo_2.png" alt="logo"></figure>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="c-logo-item">
-                  <div class="c-logo-item__inner">
-                    <figure><img src="/tekylearn/static/images/upload/logo_3.png" alt="logo"></figure>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="c-logo-item">
-                  <div class="c-logo-item__inner">
-                    <figure><img src="/tekylearn/static/images/upload/logo_4.png" alt="logo"></figure>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="c-logo-item">
-                  <div class="c-logo-item__inner">
-                    <figure><img src="/tekylearn/static/images/upload/logo_5.png" alt="logo"></figure>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="c-logo-item">
-                  <div class="c-logo-item__inner">
-                    <figure><img src="/tekylearn/static/images/upload/logo_6.png" alt="logo"></figure>
-                  </div>
-                </div>
-              </li>
+              {% endfor %}
             </ul>
           </div>
         </div>

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="is-black" lang="en">
+  <!--Variables to set active page in sidebar-->
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+    <meta http-equiv="content-language" content="vi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Template">
+    <meta name="COPYRIGHT" content="© Template">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/ico">
+    <title>Teky LMS - Login</title>
+    <!--Include CSS-->
+    <link rel="stylesheet" href="{% static 'css1/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/login.css' %}">
+  </head>
+  <body class="is-black">
+    <div class="l-black-bg">  
+      <!--Content page part-->
+      <form method="post" action=" {% url 'registeruser' %}" id="myform">
+      <p id="msg"></p>
+        {% csrf_token %}
+      <div class="c-bblack-outer">
+        <div class="c-bblack-center is-register is-height">
+          <div class="c-bblack-center__outer clearfix">
+            <div class="c-bblack-center__left">
+              <div class="c-login">
+                <div class="c-login__top"><img src="/tekylearn/static/images/logo-login.png"></div>
+                {% if form.errors %}
+                <ul>
+                    {% for message in  form.errors.as_data %}
+                    <li class="red">{{message}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="c-login__form clearfix">
+                  <div class="form-group is-placeholder-login is-valid">
+                    {{form.username}}
+                    <div class="is-placeholder-login__placeholder"><b>Tên đăng nhập</b></div>
+                    <span class="form-message"></span>
+                  </div>
+                  <div class="form-group is-placeholder-login is-valid">
+                    {{form.email}}
+                    <div class="is-placeholder-login__placeholder"><b>Email </b></div>
+                    <span class="form-message"></span>
+                  </div>
+                  <div class="form-group is-password is-placeholder-login is-valid">
+                    {{form.password1}}      
+                    <div class="is-placeholder-login__placeholder"><b>Mật khẩu </b></div>
+                    <span class="form-message"></span>
+                    <button class="c-login__pass show-pass"> <i class="icon-invisible"></i></button><span class="is-err">Please provide a valid city</span>
+                  </div>
+                  <div class="form-group is-password is-placeholder-login is-valid">
+                    {{form.password2}}      
+                    <div class="is-placeholder-login__placeholder"><b>Nhập lại mật khẩu </b></div>
+                    <button class="c-login__pass show-pass"> <i class="icon-invisible"></i></button><span class="is-err">Please provide a valid city</span>
+                    <span class="form-message"></span>
+                  </div>
+                  <button class="btn btn-primary"><span>Đăng ký</span><i class="icon-right-arrow"></i></button>
+                </div>
+                <div class="c-bottom-loginall">
+                  <div class="c-login__bottom"><span>Made with</span><i class="icon-tim-login"></i><span>by TEKY</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="c-bblack-center__right is-img-login"><img src="/tekylearn/static/images/login.png"><span> <b>Welcome!</b></span></div>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+    <!--Optional JavaScript part-->
+    <!--jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src ="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script> 
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
+    <script src="{% static 'js/funtion.js' %}"></script>
+    <script src="{% static 'js/style.js' %}"></script> 
+    <script src="{% static 'js/registeruser.js' %}"></script> 
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Mong muốn của chúng ta
+        Validator({
+          form: '#myform',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#id_username', 'Vui lòng nhập tên đầy đủ của bạn'),
+            Validator.isEmail('#id_email'),
+            Validator.minLength('#id_password1', 2),
+            Validator.isRequired('#id_password2'),
+            Validator.isConfirmed('#id_password2', function () {
+              return document.querySelector('#myform #id_password1').value;
+            }, 'Mật khẩu nhập lại không chính xác')
+          ]
+         
+        });
+
+
+        Validator({
+          form: '#form-2',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isEmail('#email'),
+            Validator.minLength('#password', 6),
+          ],
+          onSubmit: function (data) {
+            // Call API
+            console.log(data);
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

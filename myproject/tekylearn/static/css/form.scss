@@ -1,0 +1,55 @@
+/*---------- home intro css ----------*/
+
+.c-intro{
+  position: relative;
+  z-index: 3;
+  margin-top: -15px;
+}
+.c-support-form{
+  background: $color-primary;
+  padding: 15px;
+  @include border-radius(4px);
+  margin-bottom: 20px;
+  &__title{
+    color: $color-white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  .form-control{
+    border: none;
+    padding: 1.375rem .75rem;
+    //text-transform: uppercase;
+    font-family: $font-arial;
+  }
+  select.form-control{
+    height: 44px;
+    padding: 0rem .75rem;
+  }
+  .btn{
+    padding: 0.625rem .75rem;
+  }
+  .form-group{
+    margin-bottom: 15px;
+    &.is-tel{
+      position: relative;
+      z-index: 1;
+      .form-control{
+        padding: 1.375rem .75rem 1.375rem 70px;
+      }
+      .c-support-form__pre{
+        position: absolute;
+        z-index: 3;
+        top: 5px;
+        line-height: 34px;
+        height: 34px;
+        left: 0;
+        width: 58px;
+        text-align: center;
+        border-right: 1px solid $color-black;
+      }
+    }
+  }
+}
+
+//end home intro responsive css
+/*---------- end home intro css ----------*/

@@ -1,0 +1,156 @@
+//color base
+$color-white: #fff;
+$color-blue: #0062DA;
+$color-blue-medium: #6483ED;
+$color-blue-dark: #0A0B46;
+
+//color site
+$color-bg: $color-white;
+$color-bg2: #F4F6F9;
+$color-bg3: #ededed;
+$color-bg4: #4D4D4D;
+$color-bg5: #f2f5fa;
+$color-bg6: #F2F6FD;
+$color-bg7: #FDFDFE;
+$color-bg8: #F7F7F7;
+$color-bg9: #E6EDF9;
+$color-bg10: #E2DED5;
+$color-bg11: #CCC2AD;
+$color-bg12: #FAFAFA;
+$color-link: $color-blue;
+$color-link-hover: #0000ff;
+$color-text: #333;
+$color-text-medium: #454545;
+$color-text2: #767676;
+$color-text4: #8C97AC;
+$color-border: #ddd;
+$color-border2: #a1a1a1;
+$color-border3: #9EA9C9;
+$color-border4: #E8EDFC;
+$color-border5: #EAEFFE;
+$color-border6: #D8D8D8;
+$color-border7: #EAEDF2;
+$color-border-light: #EDF1F6;
+$color-border-secondary: #F3E1B7;
+$color-time: #919EAB;
+$color-place-holder: #B9BFCA;
+
+//color main
+$color-primary: #5DC2A7;
+$color-primary-dark: #3F9F85;
+$color-primary-light: #6FD9BD;
+$color-primary-light-max: #0062DA;
+$color-primary-dark-max: #084A39;
+$color-primary-dark-before: #235A4C;
+$color-primary-medium: #408371;
+$color-secondary: #FCF055;
+$color-secondary-light: #FFE799;
+$color-secondary-light-max: #FFFBF2;
+$color-secondary-normal: #4C4A4B;
+$color-secondary-dark: #2E2E2E;
+//$color-info: #17a2b8;
+$color-info-light-medium: #E9F7FE;
+//$color-success: #28a745;
+$color-success-light: #EAFFED;
+$color-warning: #FE8719;
+$color-warning-medium: #FBA800;
+$color-warning-light-max: #FFFBF2;
+$color-warning-light-more: #EEE1C6;
+$color-warning-light-medium: #FEF3DA;
+$color-warning-light: #FFD200;
+$color-danger: #E36B71;
+$color-danger-dark: #D9534F;
+$color-danger-bold: #F44336;
+//$color-light: #f8f9fa;
+$color-dark: #25252F;
+
+//color list
+$color-black: #000;
+$color-indogo-black: #1C2137;
+$color-indigo: #252F5A;
+$color-indigo-border: #505B87;
+$color-purple-bold: #6236FF;
+$color-purple: #AA7BF3;
+$color-purple-medium: #F400FF;
+$color-purple-light: #EFF2FF;
+$color-purple-border: #3C50A2;
+$color-purple-tool: #6C47B0;
+//$color-pink: #e83e8c;
+$color-red: #EF4B4B;
+$color-red-dark: #A6192E;
+$color-red-medium: #CB1E20;
+$color-red-border: #661D1E;
+$color-red-bold: #BD2F2A;
+$color-orange: #EB9138;
+$color-yellow: #FFCC33;
+$color-yellow-light: #FFFAEB;
+$color-yellow-tool: #F0B75E;
+$color-green: #00843E;
+$color-green-light: #D6FFC7;
+$color-green-blue: #8FD8EA;
+//$color-teal: #20c997;
+//$color-cyan: #17a2b8;
+//$color-gray: #6c757d;
+//$color-gray-dark: #343a40;
+$color-gray-light: #F5F5FA;
+$color-gray-before-light: #E9E9F6;
+$color-gray-over: #F6F8F9;
+$color-gray-medium: #ECF2FF;
+$color-gray-blue: #AFBED7;
+$color-gray-dark-max: #1d293f;
+$color-gray-dark: #808191;
+$color-brown: #BE5A0E;
+$color-brown-dark: #593D00;
+$color-brown-dark-max: #350925;
+$color-brown-medium: #BA9954;
+$color-pink-light: #FFF0F2;
+$color-shadow: #B1BCC7;
+//width
+$container-sm: 576px;
+$container-sm-number: 576;
+$container-md: 738px;
+$container-md-number: 738;
+$container-lg: 970px;
+$container-lg-number: 970;
+$container-xl: 1170px;
+$container-xl-number: 1170;
+
+//grid size
+$screen-xs: 0;
+$screen-xs-min: $screen-xs;
+$screen-sm: 576px;
+$screen-sm-min: $screen-sm;
+$screen-md: 768px;
+$screen-md-min: $screen-md;
+$screen-lg: 992px;
+$screen-lg-min: $screen-lg;
+$screen-xl: 1200px;
+$screen-xl-min: $screen-xl;
+$screen-xxl: 1600px;
+$screen-xxl-min: $screen-xxl;
+
+//grid size max
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg - 1);
+$screen-lg-max: ($screen-xl - 1);
+$screen-xl-max: ($screen-xxl - 1);
+
+//font
+$font-arial: Arial,"Helvetica Neue",Helvetica,sans-serif;
+$font-lato: 'Lato',Arial,"Helvetica Neue",Helvetica,sans-serif;
+$font-roboto: 'Roboto',Arial,"Helvetica Neue",Helvetica,sans-serif;
+$font-roboto-condensed: 'Roboto Condensed','Roboto',Arial;
+$font-open-sans: 'Open Sans','Roboto',Arial,sans-serif;
+$font-awesome: 'FontAwesome';
+$font-awesome-5-free: 'Font Awesome 5 Free';
+$font-quicksand: 'Quicksand', sans-serif;
+$font-montserrat: 'Montserrat', sans-serif;
+$font-utm-avo: 'Utm Avo';
+$font-site: $font-quicksand;
+$font-title: $font-quicksand;
+
+//font size
+$font-size-xs: 14px;
+$line-height-xs: 20px;
+$font-size-md: 14px;
+$line-height-md: 20px;

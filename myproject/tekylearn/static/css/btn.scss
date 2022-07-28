@@ -177,21 +177,7 @@
     color: $color-white;
   }
 }
-.form-control{
-  @include border-radius(0);
-  @include box-shadow(none);
-  &:focus{
-		@include box-shadow(none);
-  }
-}
-textarea.form-control{
-	height: auto;
-}
-input.form-control{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
+
 select:not([multiple]).b-select-custom{
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -279,47 +265,7 @@ select:not([multiple])::-ms-expand{
 }
 //end bootstrap table css
 //bootstrap form css
-.b-form{
-  label{
-    font-weight: normal;
-  }
-  .b-form__captcha{
-    display:inline-block;
-    border:1px solid $color-border;
-    margin:0 0 5px;
-    vertical-align:middle;
-  }
-  .b-form__btnnewimg{
-    background: url(../images/btnnewimg.png) no-repeat;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-    height: 31px;
-    margin:0 0 0 5px !important;
-    text-indent: -9999px;
-    vertical-align: middle !important;
-    width: 30px;
-    display: inline-block;
-  }
-  &.form-horizontal{
-    .control-label{
-      text-align: left;
-      &.text-right{
-        text-align: right;
-      }
-    }
-  }
-}
-.c-small-form{
-  label{
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .form-control{
-    font-weight: 500;
-    @include border-radius(5px);
-  }
-}
+
 //end bootstrap form css
 //bootstrap page css
 .b-page{
@@ -492,5 +438,6 @@ body .tooltip.is-tool .arrow{
 @media (min-width: $screen-xl-min){
 
 }
+
 //end bootstrap responsive css
 /*---------- end bootstrap css rewrite css ----------*/

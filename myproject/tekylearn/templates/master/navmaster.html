@@ -94,12 +94,17 @@
                 <div class="c-header-user">
                   <div class="c-header-user__icon"><i class="icon24-user-white"></i></div>
                   <div class="c-header-user__text">
+                    {% if user.is_authenticated %}    
+                        <p class="is-small">Hello {{user.username}}</p>
+                        <a href="{% url 'logout' %}" class="text-secondary">LogOut</a>             
+                    {% else %} 
                     <p><a href="#">Đăng nhập</a></p>
                     <p class="is-small"><span class="h-show-pc">
                         hoặc
                         </span><a class="text-secondary" href="#">đăng ký</a><span class="h-show-pc">
                         
-                        miễn phí</span></p>
+                        miễn phí</span></p>  
+                   {% endif %}         
                   </div>
                 </div>
               </div>

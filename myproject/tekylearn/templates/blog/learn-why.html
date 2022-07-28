@@ -10,7 +10,6 @@
         <div class="c-box__content pt-5">
           <div class="c-learn-why-grid">
             <ul>
-              {% for n in  number %}
               {% for learnwhy in why %}
                 {% if learnwhy.img %}
                   <li>
@@ -21,7 +20,6 @@
                     </div>
                   </li>
                 {% endif %}
-              {% endfor %}
               {% endfor %}
             </ul>
           </div>

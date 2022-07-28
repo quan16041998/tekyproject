@@ -12,7 +12,6 @@
       <div class="c-prize-slider c-template-dotprimary">
         <div class="owl-carousel js-prize-slider">
          {% for prize in prize  %}
-         {% for number in number %}
          <div class="c-prize-item">
            <div class="c-prize-item__inner">
              <div class="c-prize-item__thumb"><img src="/{{prize.img}}" alt="prize"></div>
@@ -20,8 +19,7 @@
              <div class="c-prize-item__desc">{{prize.name}}</div>
              <div class="c-prize-item__more"><a href="#">Xem chi tiết<i class="icon-arrow-right-blue"></i></a></div>
            </div>
-         </div>
-         {% endfor %}   
+         </div> 
          {% endfor %}   
          
         </div>

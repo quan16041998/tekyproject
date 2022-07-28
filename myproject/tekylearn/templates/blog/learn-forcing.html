@@ -25,20 +25,24 @@
                   <div class="c-forcing-item__pos">{{learn_forcing.pos}}</div>
                   <div class="c-forcing-item__name">{{learn_forcing.name}}</div>                  
                   <div class="c-forcing-item__content">
+                    {% for imgmain in learn_forcing.getimgmain %}
+                      {% if imgmain  %}
                     <div class="c-forcing-item__avatar">
-                      <figure><img src="/tekylearn/static/images/ upload/forcing_1.png" alt="image"></figure>
+                      <figure><img src="/{{imgmain.img}}" alt="image"></figure>
                     </div>
+                      {% endif %}
                     <div class="c-forcing-item__gallery">
                       <ul>                 
-                        {% for img_forcing in learn_forcing.test.all %}
-                          {% if img_forcing.img %}
+                        {% for img_forcing in learn_forcing.getimg %}
+                          {% if img_forcing %}
                             <li>
-                              <figure><img src="{{img_forcing.img.url}}" alt="image"></figure>
+                              <figure><img src="/{{img_forcing.img}}" alt="image"></figure>
                             </li>
                           {% endif %}
                         {% endfor %}
                       </ul>
                     </div>
+                    {% endfor %}
                   </div>
                 </div>
               </div>

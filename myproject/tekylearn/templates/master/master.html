@@ -12,40 +12,34 @@
             <meta name="google" content="notranslate">
             <meta name="keywords" content="">
             <meta name="description" content="">
-            <link rel="shortcut icon" href="images/favicon.ico">
             <meta name="description" content="">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/ico">
             <title>
                 {% block title %}
                 {% endblock  %}
-            </title>      
+            </title>     
             <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
-            <link rel="stylesheet" href="{% static 'css/style.scss' %}" type="text/css">
         </head>
         <body>
             {% include 'master/navmaster.html' %}
             {% block content %}
-
+            
             {% endblock content %}
 
             {% include 'master/partner.html' %}
             {% include 'master/footer.html' %}
-            <script src ="{% static 'js/bootstrapmin.js' %}"></script>
+            <script src ="{% static 'js/bootstrap.min.js' %}"></script>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script> 
-            <script src="js/popper.min.js"></script>
             <script src="{% static 'js/owl.carousel.min.js' %}"></script>
             <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
-            <script src="js/jquery.matchHeight-min.js"></script>
-            <script src="js/imagesloaded.pkgd.min.js"></script>
-            <script src="js/masonry.pkgd.min.js"></script>
-            <script src="js/jquery.fancybox.js"></script>
-            <script src="js/jquery.inview.js"></script>
-            <script src="js/jquery.countTo.js"></script>
-            <script src="js/jquery.scrollchaser.min.js"></script>
-            <script src="js/jquery.scrollbar.min.js"></script>
             <script src="{% static 'js/funtion.js' %}"></script>
             <script src="{% static 'js/style.js' %}"></script> 
         </body>
+        <script>
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+              })
+        </script>
     </html>

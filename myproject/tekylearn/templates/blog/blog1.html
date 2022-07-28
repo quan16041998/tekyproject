@@ -1,11 +1,11 @@
-{% load static %}
+
 <div class="c-learn-head">
     <div class="container">
       <div class="c-learn-head__flex">
         <div class="c-learn-head__caption">
-          <h1 class="c-learn-head__title"><span class="is-big">10.000+</span><br>Gia sư & Giáo viên giỏi</h1>
-          <h2 class="c-learn-head__desc">The monkey-rope is found in all whalers; but it was only in the Pequod that the monkey and his holder</h2>
-          <div class="c-learn-head__btn"><a class="btn btn-light btn-lg" href="#">Đăng ký tư vấn ngay</a></div>
+          <h1 class="c-learn-head__title"><span class="is-big">{{blog.number}}</span><br>{{blog.titlte}}</h1>
+          <h2 class="c-learn-head__desc">{{blog.content}}</h2>
+          <div class="c-learn-head__btn"><a class="btn btn-light btn-lg" href="{% url 'register' %}">Đăng ký tư vấn ngay</a></div>
           <div class="c-app-download">
             <ul class="is-col-3">
               <li><i class="icon84-smartphone-white"></i>
@@ -25,10 +25,10 @@
               <li><a href="#">
                   <div class="icon16-android-white"></div>Android App</a></li>
             </ul>
-          </div>
+          </div>  
         </div>
         <div class="c-learn-head__img">
-          <figure><img src="{% static 'images/upload/learn-head.png' %}" alt="learn head"></figure>
+          <figure><img src="{{blog.img.url}}" alt="learn head"></figure>
         </div>
       </div>
     </div>

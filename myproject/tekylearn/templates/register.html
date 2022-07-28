@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="is-black" lang="en">
+  <!--Variables to set active page in sidebar-->
+  <head>
+    <!--Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+    <meta http-equiv="content-language" content="vi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Template">
+    <meta name="COPYRIGHT" content="© Template">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/ico">
+    <title>Teky Register</title>
+    <!--Include CSS-->
+    <link rel="stylesheet" href="{% static 'css1/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css1/login.css' %}">
+  </head>
+  <body class="is-black">
+    <div class="l-black-bg">  
+      <!--Content page part-->
+      <form method="post" action=" {% url 'register' %}">
+        {% csrf_token %}
+      <div class="c-bblack-outer">
+        <div class="c-bblack-center is-register is-height">
+          <div class="c-bblack-center__outer clearfix">
+            <div class="c-bblack-center__left">
+              <div class="c-login">
+                <div class="c-login__top"><img src="/tekylearn/static/images/logo-login.png"></div>
+                {% if messages %}
+                <ul>
+                    {% for message in  messages %}
+                    <li class="red">{{message}}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="c-login__form clearfix my-3">
+                  <div class="form-group is-placeholder-login is-valid">
+                    {{form.name}}
+                    <div class="is-placeholder-login__placeholder"><b>Họ và tên</b></div>
+                  </div>
+                  <div class="form-group is-password is-placeholder-login is-valid">
+                    {{form.phone}}                 
+                    <div class="is-placeholder-login__placeholder"><b>Phone </b></div>
+                    <button class="c-login__pass show-pass"> <i class="icon-invisible"></i></button><span class="is-err">Please provide a valid city</span>
+                  </div>
+                  <div class="form-group is-placeholder-login is-valid">
+                    {{form.caphoc}}
+                    <div class="is-placeholder-login__placeholder text-right"><b>Cấp Học</b></div>
+                  </div>
+                  <div class="form-group is-placeholder-login is-valid">
+                    {{form.trungtam}}
+                  <div class="is-placeholder-login__placeholder text-right"><b>Trung tâm</b></div>
+                  </div>
+                  <button class="btn btn-primary"><span>Đăng ký</span><i class="icon-left-arrow"></i></button>
+                </div>
+              </form>
+              <a class="btn btn-danger" href="{% url 'tekylearn' %}"><i class="icon-right-arrow"></i><span>Back</span></a>
+                <div class="c-bottom-loginall">
+            
+                  <div class="c-login__bottom"><span>Made with</span><i class="icon-tim-login"></i><span>by TEKY</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="c-bblack-center__right is-img-login"><img src="/tekylearn/static/images/login.png"><span> <b>Welcome!</b></span></div>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+    <!--Optional JavaScript part-->
+    <!--jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src ="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script> 
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
+    <script src="{% static 'js/funtion.js' %}"></script>
+    <script src="{% static 'js/style.js' %}"></script> 
+    <!--Page specific javascripts part-->
+  </body>
+</html>

@@ -283,6 +283,17 @@
       }
     }
   }
+  .test-support-form{
+    background: $color-primary;
+    padding: 15px;
+    @include border-radius(4px);
+    margin-bottom: 20px;
+    &__title{
+      color: $color-white;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+  }
   @media (min-width: $screen-xxl-min){//pc large size with 1400px tp grow up
   
   }
