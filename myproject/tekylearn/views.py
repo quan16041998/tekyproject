@@ -4,7 +4,11 @@ from unicodedata import name
 from django import forms
 from django.shortcuts import redirect, render
 from django.views import View
-from urllib import request
+from .serializers import UserSerializer
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from rest_framework import status
+from rest_framework.generics import ListCreateAPIView
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
@@ -80,4 +84,34 @@ class RegisterUserClass(View):
         return render(request, 'registeruser.html', {'form' :form})
         
 
+def validate_username(request):
+    if  request.method == "GET":
+        username= request.GET.get("username", None)
+        if User.objects.filter(username= username).exists():
+            return JsonResponse({"valid":False}, status = 200)
+        else:
+            return JsonResponse({"valid":True}, status = 200)
+
+    return JsonResponse({}, status = 400)
+
+
+class ListUserView(ListCreateAPIView):
+    model = User
+    serializer_class = UserSerializer
+    def get_queryset(self):
+        return User.objects.all()
+
+    def create(self, request, *args, **kwargs):
+        serializer = UserSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return JsonResponse({
+                'message': 'Create a new User successful!'
+            }, status=status.HTTP_201_CREATED)
+
+        return JsonResponse({
+            'message': 'Create a new User unsuccessful!'
+        }, status=status.HTTP_400_BAD_REQUEST)
            
