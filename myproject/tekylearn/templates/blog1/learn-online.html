@@ -1,0 +1,32 @@
+<div class="c-block">
+    <div class="container">
+      <div class="c-box">
+        <div class="c-box__title">
+          <div class="c-box__title__small text-warning">{{title.1.title_small}}</div>
+          <div class="c-box__title__name">{{title.1.title_big}}</div>
+        </div>
+        <div class="c-box__content">
+          <div class="c-online-slider-wrapper">
+            <div class="c-online-slider c-template-blur">
+              <div class="owl-carousel js-online-slider">
+               {% for learn_online in online  %}
+               <div class="c-online-item">
+                <div class="c-online-item__thumb"><div class="video-container"><iframe  src="https://www.youtube.com/embed/JGYF-fUMGx4" title="{{learn_online.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+                <div class="c-online-item__content">
+                  <div class="c-online-item__row"><a class="c-online-item__title" href="#">{{ learn_online.title}}</a></div>
+                  <div class="c-online-item__row"><span class="c-online-item__class">Lớp {{ learn_online.grade}}</span></div>
+                  <div class="c-online-item__row"><i class="icon44-youtube"></i></div>
+                </div>
+              </div>
+               {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end c-box__content-->
+      </div>
+      <!--end c-box-->
+    </div>
+    <!--end container-->
+  </div>
+  <!--end c-block-->

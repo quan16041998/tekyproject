@@ -10,4 +10,6 @@ urlpatterns = [
     path('register/', views.RegisterClass.as_view(), name='register'),
     path('registeruser/', views.RegisterUserClass.as_view(), name='registeruser'),
     path('validate_user/', views.validate_username, name='validate_username'),
+    path('templatetags/', views.templatetags.as_view(), name="templatetagss"),
+    path('auth/', include('social_django.urls', namespace='social'))
 ]

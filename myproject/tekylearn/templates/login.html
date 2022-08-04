@@ -1,4 +1,5 @@
 {% load static %}
+{% load post_tags %}
 <!DOCTYPE html>
 <html class="is-black" lang="en">
   <!--Variables to set active page in sidebar-->
@@ -21,6 +22,9 @@
     <link rel="stylesheet" href="{% static 'css1/login.css' %}">
   </head>
   <body class="is-black">
+    <h1>{% total_forcing as a %}</h1>
+    <h1>{{ a|myfilter}}</h1>
+ 
     <div class="l-black-bg">  
       <!--Content page part-->
       <form method="post" action=" {% url 'login' %}">
@@ -31,17 +35,10 @@
             <div class="c-bblack-center__left">
               <div class="c-login">
                 <div class="c-login__top"><img src="/tekylearn/static/images/logo-login.png"></div>
-                {% if messages.error %}
-                <ul>
-                    {% for message in  messages.error %}
-                    <li class="red">{{message}}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
                 {% if messages %}
                 <ul>
                     {% for message in  messages %}
-                    <li class="success">{{message}}</li>
+                    <li {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -54,14 +51,15 @@
                     {{form.password}}
                     
                     <div class="is-placeholder-login__placeholder"><b>Mật khẩu </b></div>
-                    <button class="c-login__pass show-pass"> <i class="icon-invisible"></i></button><span class="is-err">Please provide a valid city</span>
+                    <button class="c-login__pass show-pass" id="showpassword"> <i class="icon-invisible"></i></button><span class="is-err">Please provide a valid city</span>
                   </div>
                   <button class="btn btn-primary"><span>Đăng nhập 
                       <div class="c-text-btn">bằng mật khẩu</div></span><i class="icon-right-arrow"></i></button>
                   <div class="c-login__forgot"><span>Bạn không nhớ </span><a href="/#"> <b>mật khẩu?</b></a></div>
                   <div class="c-text-otp is-mb-2 is-login-hoac"><span>Hoặc</span></div>
-                  <button class="btn btn-primary is-mt-1 is-facebook"><i class="icon-facebook-login"></i><span>Đăng nhập bằng Facebook</span></button>
+                  <button  class="btn btn-primary is-mt-1 is-facebook"><i class="icon-facebook-login"><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"></i><span>Đăng nhập bằng Facebook</span></a></button>
                   <button class="btn btn-primary is-mt-2 is-gmail"><i class="icon-google-login"></i><span>Đăng nhập bằng Gmail</span></button>
+                  <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"></i><span>Đăng nhập bằng Facebook</span></a>
                 </div>
                 <div class="c-bottom-loginall">
                   <div class="c-login__help">Bạn chưa có tài khoản? <a href="{% url 'registeruser' %}"> <span>Đăng ký ngay</span></a></div>
@@ -80,10 +78,23 @@
     <script src ="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script> 
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    {% comment %} <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel2.thumbs.js' %}"></script>
     <script src="{% static 'js/funtion.js' %}"></script>
     <script src="{% static 'js/style.js' %}"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> {% endcomment %}
     <!--Page specific javascripts part-->
+    <script>
+      $(document).ready(function() {
+        $("#showpassword").onclick(function(e){
+          e.preventDefault();
+          const type = $("#id_password").attr("type");
+          $("#id_password").attr("type",
+          type === "password" ? "text" : "password"
+          );
+
+        })
+      })
+    </script>
   </body>
 </html>

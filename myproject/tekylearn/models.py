@@ -136,3 +136,14 @@ class blog1(models.Model):
     img = models.ImageField(upload_to = 'tekylearn/static/images/upload')
     def __str__(self):
         return self.title
+
+class ModalRegisterStudent(models.Model): 
+    name = models.CharField(max_length=100,blank=False,null= False)
+    year = models.CharField(max_length=30,blank=False,null= False)
+    nameparent = models.CharField(max_length=100,blank=False,null= False)
+    email = models.EmailField(max_length=100,blank=False,null= False)
+    phonenumber = models.CharField(max_length=11,blank=False,null= False)
+    def __str__(self):
+        return self.name
+    class Meta:
+        db_table = "Register"

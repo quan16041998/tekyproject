@@ -1,6 +1,6 @@
 from re import I
 from django.contrib import admin
-from .models import Partner, blog1, learn_online,learn_title,learn_teacher_number,learn_intro,start_learn,learn_forcing,img_forcing,learn_prize,learn_why,learn_parent,customer
+from .models import ModalRegisterStudent, Partner, blog1, learn_online,learn_title,learn_teacher_number,learn_intro,start_learn,learn_forcing,img_forcing,learn_prize,learn_why,learn_parent,customer
 from .models import trungtam,CapHoc,RegisterStudent
 # Register your models here.
 class LearnWhy(admin.ModelAdmin):
@@ -97,3 +97,9 @@ class PartnerAdmin(admin.ModelAdmin):
     list_filter = ['name']
     search_fields =['name']
 admin.site.register(Partner, PartnerAdmin)
+
+class RegisterModalAdmin(admin.ModelAdmin):
+    list_display =['name']
+    list_filter = ['name']
+    search_fields =['name']
+admin.site.register(ModalRegisterStudent, RegisterModalAdmin)

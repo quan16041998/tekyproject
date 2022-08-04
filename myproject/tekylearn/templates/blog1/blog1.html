@@ -1,10 +1,11 @@
+
 <div class="c-learn-head">
     <div class="container">
       <div class="c-learn-head__flex">
         <div class="c-learn-head__caption">
           <h1 class="c-learn-head__title"><span class="is-big">{{blog.number}}</span><br>{{blog.titlte}}</h1>
           <h2 class="c-learn-head__desc">{{blog.content}}</h2>
-          <div class="c-learn-head__btn"><button class="btn btn-light btn-lg"  data-toggle="modal" data-target="#modal1">Đăng ký tư vấn ngay</button></div>
+          <div class="c-learn-head__btn"><a class="btn btn-light btn-lg" href="{% url 'register' %}">Đăng ký tư vấn ngay</a></div>
           <div class="c-app-download">
             <ul class="is-col-3">
               <li><i class="icon84-smartphone-white"></i>

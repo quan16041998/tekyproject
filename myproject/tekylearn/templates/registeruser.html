@@ -51,11 +51,11 @@
                     <div class="is-placeholder-login__placeholder"><b>Email </b></div>
                     <span class="form-message" ></span>
                   </div>
-                  <div class="form-group is-password is-placeholder-login is-valid">
+                  <div class="form-group is-password is-placeholder-login">
                     {{form.password1}}      
                     <div class="is-placeholder-login__placeholder"><b>Mật khẩu </b></div>
                     <span class="form-message" id="test1"></span>
-                    <button class="c-login__pass show-pass"> <i class="icon-invisible"></i></button><span class="is-err">Please provide a valid city</span>
+                    
                   </div>
                   <div class="form-group is-password is-placeholder-login is-valid">
                     {{form.password2}}      
@@ -91,6 +91,7 @@
           formGroupSelector: '.form-group',
           errorSelector: '.form-message',
           rules: [
+            Validator.isRequired('#id_password1'),
             Validator.isEmail('#id_email'),
             Validator.minLength('#id_password1', 2),
             Validator.isRequired('#id_password2'),
@@ -107,6 +108,7 @@
           var username = $(this).val();
           var nickName = $("#id_username").parent(".form-group");
           var test = $("#test")
+          var test1 = $("#test1")
          if(username == ""){
           nickName.addClass("invalid");                   
           test.html("<p>Username khong duoc bo trong</p>");
@@ -117,7 +119,7 @@
             data: {"username": username},
             datatype: "JSON",
             success: function (response) {
-                if(!response["valid"]){ 
+                if(!response["valid"]){  
                     nickName.addClass("invalid");                   
                     test.html("<p>Username đã tồn tại</p>");
                 }else{
@@ -136,7 +138,8 @@
           e.preventDefault();
           var strong = 1;
           var nickName = $("#id_password1").parent(".form-group");
-          var test = $("#test1")
+          var test = $("#id_password1").val()
+          var test1 = $("#test1")
           if(this.value .length >6){
             strong++;
           }  
@@ -147,12 +150,16 @@
             strong++;
           }
           if(strong < 3){
-            nickName.addClass("invalid");                   
-            test.html("<p>password yeu</p>");
+            nickName.addClass("invalid");
+            if(test != ''){
+              test1.html("<p>password yeu</p>");
+            }else{
+              test1.html("<p>Password khong duoc bo trong</p>");
+            }                  
+            
           }else{
-            nickName.removeClass("invalid");  
-            nickName.addClass("success");  
-            test.html("");
+            nickName.removeClass("invalid");   
+            test1.html("");
           }
         })
       });     

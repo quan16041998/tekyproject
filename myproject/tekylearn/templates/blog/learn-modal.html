@@ -1,41 +1,33 @@
-   <!-- modal Register online-->
-   <div class="modal fade" id="modalRegisterOnline" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-custom">
+<form method="post" action=" {% url 'tekylearn' %}" id="formregister">
+  {% csrf_token %}
+<div class="modal fade" id="modal1" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-custom">
       <div class="modal-content">
-        <div class="modal-header">
+      <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Đăng ký tư vấn miễn phí</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        </div>
-        <div class="modal-body">
+      </div>
+      <div class="modal-body">
           <div class="c-small-form b-form">
             <div class="form-group">
               <label>Họ và tên học sinh</label>
-              <input class="form-control" type="text" placeholder="Nhập họ và tên học sinh">
+              {{form.name}}
             </div>
             <div class="form-group">
               <label>Năm sinh</label>
-              <select class="form-control">
-                <option>Chọn năm sinh</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-              </select>
+              {{form.year}}
             </div>
             <div class="form-group">
               <label>Họ và tên phụ huynh</label>
-              <input class="form-control" type="text" placeholder="Nhập họ và tên phụ huynh">
+              {{form.nameparent}}
             </div>
             <div class="form-group">
               <label>Email liên hệ</label>
-              <input class="form-control" type="text" placeholder="Nhập email liên hệ">
-            </div>
+              {{form.email}}
+              </div>
             <div class="form-group">
               <label>Số điện thoại liên hệ</label>
-              <input class="form-control" type="text" placeholder="Nhập số điện thoại liên hệ">
+              {{form.phonenumber  }}
             </div>
             <div class="form-group is-last">
               <button class="btn btn-primary btn-block btn-lg" type="submit">Đăng ký</button>
@@ -43,6 +35,10 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
-  <!-- end modal Register online-->
+  </div>
+</form>
+  
+  
+  
+  

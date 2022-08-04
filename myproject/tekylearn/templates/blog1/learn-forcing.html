@@ -1,5 +1,4 @@
-{% load post_tags %}
-
+{% load static %}
 <div class="c-block c-forcing-block">
     <div class="container">
       <div class="c-box">
@@ -14,9 +13,6 @@
       <div class="c-forcing-slider">
         <div class="owl-carousel js-forcing-slider">
           {% for learn_forcing in  forcing %}
-          {% learn_forcing_img learn_forcing.id as img %}
-          {% learn_forcing_imgmain learn_forcing.id as imgmain %}
-
           <div class="c-forcing-item">
             <div class="container">
               <div class="c-forcing-item__flex">
@@ -29,7 +25,7 @@
                   <div class="c-forcing-item__pos">{{learn_forcing.pos}}</div>
                   <div class="c-forcing-item__name">{{learn_forcing.name}}</div>                  
                   <div class="c-forcing-item__content">
-                    {% for imgmain in imgmain %}
+                    {% for imgmain in learn_forcing.getimgmain %}
                       {% if imgmain  %}
                     <div class="c-forcing-item__avatar">
                       <figure><img src="/{{imgmain.img}}" alt="image"></figure>
@@ -37,7 +33,7 @@
                       {% endif %}
                     <div class="c-forcing-item__gallery">
                       <ul>                 
-                        {% for img_forcing in img %}
+                        {% for img_forcing in learn_forcing.getimg %}
                           {% if img_forcing %}
                             <li>
                               <figure><img src="/{{img_forcing.img}}" alt="image"></figure>

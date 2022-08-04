@@ -1,7 +1,6 @@
 
 from django.contrib import messages 
-from unicodedata import name
-from django import forms
+from django.conf import settings
 from django.shortcuts import redirect, render
 from django.views import View
 from .serializers import UserSerializer
@@ -20,7 +19,9 @@ from .models import Partner, learn_intro,learn_online,learn_parent,learn_teacher
 
 class teky_learn(LoginRequiredMixin, View):
     login_url = 'login/'
+
     def get(self, request):
+        form = RegisterForm()
         blog = blog1.objects.get(id=1)
         why = learn_why.objects.all()
         online = learn_online.objects.all()
@@ -32,25 +33,33 @@ class teky_learn(LoginRequiredMixin, View):
         prize = learn_prize.objects.all()
         parent = learn_parent.objects.all()
         partner = Partner.objects.all()
-        context = { 'why': why, 'online' : online ,'teacher' : teacher, 'intro' : intro,'blog' :blog,
+        context = { 'why': why, 'online' : online ,'teacher' : teacher, 'intro' : intro,'blog' :blog,'form' :form,
         'start' :start, 'forcing': forcing,'title' : title_learn,'prize':prize,'parent':parent,'partner' : partner
         }
         return render(request, 'teky-learn.html',context)
+    def post(self,request):
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('tekylearn')
 
 class loginClass(View):
     def get(self,request):
         form = TestForm()
-        return render(request,'login.html',{'form' : form})
+        if not request.user.is_authenticated:
+            return render(request,'login.html',{'form' : form})
+        else:        
+            return redirect('tekylearn')
 
     def post(self,request):
         user_name = request.POST['username']
         pass_word = request.POST['password']
         request.session['username'] =  user_name
-        f = TestForm(request.POST)
+        form = TestForm(request.POST)
         user = authenticate(request,username= user_name,password = pass_word)   
         if user is None:
             messages.error(request,'Username or Password is incorrect')
-            return redirect('login')
+            return redirect('login')         
         else:
             login(request, user)
             return redirect('tekylearn')
@@ -77,10 +86,13 @@ class RegisterUserClass(View):
         return render(request,'registeruser.html',{'form' :form})
     def post(self,request):
         form = RegisterUserForm(request.POST)
+        user_name = request.POST['username']
+        pass_word = request.POST['password1']
         if form.is_valid():
             form.save()
-            messages.success(request,'You have successfully registered')
-            return redirect('login')     
+            user = authenticate(request,username= user_name,password = pass_word) 
+            login(request,user)
+            return redirect('tekylearn')     
         return render(request, 'registeruser.html', {'form' :form})
         
 
@@ -114,4 +126,10 @@ class ListUserView(ListCreateAPIView):
         return JsonResponse({
             'message': 'Create a new User unsuccessful!'
         }, status=status.HTTP_400_BAD_REQUEST)
+
+
+class templatetags(View):
+    def get(self,request):
+        title_learn =  learn_title.objects.all()
+        return render(request, "templatetags.html", {'title' :title_learn})
            

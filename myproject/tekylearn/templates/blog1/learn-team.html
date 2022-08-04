@@ -1,0 +1,29 @@
+{% load static %}
+<div class="c-block">
+    <div class="container">
+      <div class="c-learn-team">
+        <div class="c-learn-team__left">
+          <div class="c-learn-team__img"><img src="{% static 'images/upload/learn-team.png' %}" alt="learn"></div>
+        </div>
+        <!--end c-learn-team__left-->
+        <div class="c-learn-team__right">
+          <div class="c-box">
+            <div class="c-box__title">
+              <div class="c-box__title__small text-warning">{{title.2.title_small}}</div>
+              <div class="c-box__title__name">{{title.2.title_big}}</div>
+            </div>
+            <div class="c-box__content">
+              <div class="b-maincontent">
+              {% for learn_teacher in teacher %}
+              <p>{{learn_teacher.number}} {{learn_teacher.name}}</p>
+              {% endfor %}
+              </div>
+              <div class="c-learn-team__btn"><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalRegisterOnline">Đăng ký học với giáo viên</a></div>
+            </div>
+            <!--end c-box__content-->
+          </div>
+          <!--end c-box-->
+        </div>
+        <!--end c-learn-team__right-->
+      </div>
+      <!--end c-learn-team-->
